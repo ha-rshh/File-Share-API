@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+
+<body>
+      <% if(locals.error){ %>
+            <h4>
+                  <%= locals.error %>
+            </h4>
+            <% } else { %>
+                  <h2>Your file is ready to download</h2>
+                  <p>Link expires in 24 hours.</p>
+                  <h3> <%= fileName %> </h3>
+                  <small> <%= parseInt(fileSize/1000) %> KB</small>
+                  <a href="<%= downloadLink %>">Download file</a>
+            } %>
+</body>
+
+</html>
