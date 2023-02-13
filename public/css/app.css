@@ -1,6 +1,6 @@
 :root{
     --main-bg-color: #d2e4ff;
-    
+    --container-width: 500px
 }
 *{
     margin: 0;
@@ -22,14 +22,14 @@ main {
     border-radius: 20px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.drop-zone{
+.drop-zone, .upload-container{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;;
 }
 .drop-zone{
-    width: 500px;
+    width: var(--container-width);
     min-height: 200px;
     border: 2px dashed rgba(128, 128, 128, 0.561);
     margin: 30px;
@@ -76,4 +76,56 @@ main {
 .browse-btn{
     color: rgb(106, 160, 235) ;
     cursor: pointer;
+}
+.progress-container {
+    display: none;
+    width: var(--container-width);
+    height: 70px;
+    border: 2px solid rgb(132, 132, 132);
+    margin-bottom: 25px;
+    position: relative;
+
+}
+.progress-container .bg-progress{
+    background-color: var(--main-bg-color);
+    width: 0%;
+    height: 100%;
+    /* transform: scaleX(0); */
+    transform-origin: left;
+    transition: width 0.25s linear;
+    position: absolute;
+}
+.progress-container .inner-container{
+    position: absolute;
+    margin: 10px 20px;
+}
+.percent-container{
+    font-size: 15px;
+    margin: 5px;
+    opacity: 0.8;
+}
+.sharing-container{
+    width: var(--container-width);
+    display: none;
+}
+.input-container{
+    border: 2px dashed lightgray;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #d2e4ff;
+
+}
+.input-container input{
+    outline: none;
+    border: none;
+    width: 95%;
+    font-size: 15px;
+    background-color: #d2e4ff;
+}
+.input-container img{
+    cursor: pointer;
+    filter: drop-shadow(0 0 0.25rem rgb(169, 169, 169));
 }

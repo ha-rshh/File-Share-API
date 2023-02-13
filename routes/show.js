@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const File = require('../models/file')
+
 router.get('/:uuid', async (req, res) => {
       try {
             const file = await File.findOne({ uuid: req.params.uuid });
@@ -8,10 +9,10 @@ router.get('/:uuid', async (req, res) => {
             }
             return res.render('download', {
                   uuid: file.uuid,
-                  fileName: file.fileName,
+                  fileName: file.filename,
                   fileSize: file.size,
-                  download: `${process.env.APP_BASE_URL}/files/download/${file.uuid}`
-                  // http://localhost:3000/files/download/
+                  downloadLink: `${process.env.APP_BASE_URL}/files/download/${file.uuid}`,
+                  // http://localhost:3000/files/download/dfasdggasdg
             })
       } catch (err) {
             return res.render('download', { error: "Something went wrong." })
