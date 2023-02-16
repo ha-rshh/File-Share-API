@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
                   size: req.file.size
             });
             const response = await file.save();
-            return res.json({ file: `${process.env.APP_BASE_URL}/files/${response.uuid}` })
+            return res.json({ file: `${window.location.origin}/files/${response.uuid}` })
 
 
       })
@@ -73,7 +73,7 @@ router.post('/send', async (req, res) => {
             text: `${emailFrom} shared a file with you`,
             html: require('../services/emailTemp')({
                   emailFrom: emailFrom,
-                  downloadLink: `${process.env.APP_BASE_URL}/files/${file.uuid}`,
+                  downloadLink: `${window.location.origin}/files/${file.uuid}`,
                   size: (file.size/1000)+ "KB",
             })
       });
